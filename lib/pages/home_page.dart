@@ -12,7 +12,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  int index = 0;
+  int index = 1;
   var pages = [AddWord(), AllWords(), Learned()];
   var ref = FirebaseDatabase.instance.reference().child("words");
 
@@ -42,7 +42,13 @@ class _HomePageState extends State<HomePage> {
       selectedItemColor: Colors.cyanAccent,
       unselectedItemColor: Colors.cyan,
       items: [
-        BottomNavigationBarItem(icon: Icon(Icons.add), label: "Add Word"),
+        BottomNavigationBarItem(
+            activeIcon: Icon(
+              Icons.add,
+              color: Colors.tealAccent,
+            ),
+            icon: Icon(Icons.add),
+            label: "Add Word"),
         BottomNavigationBarItem(
             icon: Icon(Icons.menu_book_sharp), label: "Words"),
         BottomNavigationBarItem(
