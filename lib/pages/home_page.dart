@@ -107,12 +107,22 @@ class _HomePageState extends State<HomePage> {
                 }
               },
             ),
-      drawer: Drawer(
-        child: Column(
-          children: [],
+      drawer: buildDrawer(),
+      bottomNavigationBar: buildBottomNavigationBar(),
+    );
+  }
+
+  Drawer buildDrawer() {
+    return Drawer(
+      child: SafeArea(
+        child: Stack(
+          children: [
+            Container(
+              color: Colors.teal,
+            ),
+          ],
         ),
       ),
-      bottomNavigationBar: buildBottomNavigationBar(),
     );
   }
 
