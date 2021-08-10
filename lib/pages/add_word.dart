@@ -1,3 +1,6 @@
+import 'dart:collection';
+
+import 'package:english_turkish/firebase/firebase.dart';
 import 'package:flutter/material.dart';
 
 class AddWord extends StatefulWidget {
@@ -25,7 +28,7 @@ class _AddWordState extends State<AddWord> {
                 Text(
                   "English Word",
                   style: TextStyle(
-                      color: Colors.white,
+                      color: Colors.tealAccent,
                       fontWeight: FontWeight.bold,
                       fontSize: 25),
                 ),
@@ -61,7 +64,7 @@ class _AddWordState extends State<AddWord> {
                 Text(
                   "Turkish Meaning",
                   style: TextStyle(
-                      color: Colors.white,
+                      color: Colors.tealAccent,
                       fontWeight: FontWeight.bold,
                       fontSize: 25),
                 ),
@@ -74,7 +77,7 @@ class _AddWordState extends State<AddWord> {
                     controller: tftr,
                     validator: (tfinput) {
                       if (tfinput!.isEmpty) {
-                        return "Enter a word please";
+                        return "Enter the meaning please";
                       } else {
                         return null;
                       }
@@ -83,7 +86,7 @@ class _AddWordState extends State<AddWord> {
                       icon: Icon(Icons.language),
                       filled: true,
                       fillColor: Colors.white,
-                      hintText: "You can enter meaning in here",
+                      hintText: "You can enter the meaning in here",
                       hintStyle: TextStyle(color: Colors.grey),
                       border: OutlineInputBorder(
                           borderRadius: BorderRadius.all(Radius.circular(20))),
@@ -96,11 +99,46 @@ class _AddWordState extends State<AddWord> {
               height: 60,
               width: 200,
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  bool check = formkey.currentState!.validate();
+                  if (check) {
+                    var hmp = HashMap<String, dynamic>();
+                    hmp["English_word"] = tfeng.text;
+                    hmp["Turkish_word"] = tftr.text;
+                    hmp["starred"] = 2;
+                    ref.push().set(hmp);
+
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                        backgroundColor: Colors.blue.shade300,
+                        content: Row(
+                          children: [
+                            Icon(Icons.done),
+                            Spacer(),
+                            Text(
+                              "WORD HAS ADDED SUCCESFULLY",
+                              style: TextStyle(
+                                  color: Colors.deepPurple,
+                                  fontSize: 15,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                            Spacer(),
+                          ],
+                        ),
+                        duration: Duration(seconds: 2),
+                      ),
+                    );
+                    setState(() {
+                      tfeng.text = '';
+                      tftr.text = '';
+                    });
+                  }
+                },
                 child: Text(
                   "ADD WORD",
                   style: TextStyle(
                     fontSize: 20,
+                    color: Colors.black54,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
