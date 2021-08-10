@@ -1,6 +1,7 @@
 import 'package:english_turkish/pages/add_word.dart';
 import 'package:english_turkish/pages/all_words.dart';
 import 'package:english_turkish/pages/learned_words.dart';
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -13,6 +14,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   int index = 0;
   var pages = [AddWord(), AllWords(), Learned()];
+  var ref = FirebaseDatabase.instance.reference().child("words");
 
   @override
   Widget build(BuildContext context) {

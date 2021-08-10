@@ -1,6 +1,5 @@
 import 'dart:collection';
 
-import 'package:english_turkish/firebase/firebase.dart';
 import 'package:english_turkish/models/word_pair.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
@@ -13,6 +12,7 @@ class Learned extends StatefulWidget {
 }
 
 class _LearnedState extends State<Learned> {
+  var ref = FirebaseDatabase.instance.reference().child("words");
   @override
   Widget build(BuildContext context) {
     return StreamBuilder<Event>(

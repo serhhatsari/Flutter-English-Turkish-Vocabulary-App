@@ -1,6 +1,6 @@
 import 'dart:collection';
 
-import 'package:english_turkish/firebase/firebase.dart';
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 
 class AddWord extends StatefulWidget {
@@ -11,6 +11,7 @@ class AddWord extends StatefulWidget {
 }
 
 class _AddWordState extends State<AddWord> {
+  var ref = FirebaseDatabase.instance.reference().child("words");
   var formkey = GlobalKey<FormState>();
   var tfeng = TextEditingController();
   var tftr = TextEditingController();
