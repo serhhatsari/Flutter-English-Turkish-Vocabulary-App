@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "730513177881",
+    "firebase_url": "https://english-turkish-app-default-rtdb.firebaseio.com",
+    "project_id": "english-turkish-app",
+    "storage_bucket": "english-turkish-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:730513177881:android:828bd2763e2872dd25d988",
+        "android_client_info": {
+          "package_name": "com.example.english_turkish"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "730513177881-06k49s933jcto0rpk8giot998nqoarv4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBoBtcQ6G4h6M9ML3v2AvT0OFJK3_bd1Ks"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "730513177881-06k49s933jcto0rpk8giot998nqoarv4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
